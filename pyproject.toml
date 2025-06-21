@@ -129,6 +129,7 @@ dev-python = [
 ]
 
 dev-typing = [
+  { include-group = "dev-tests" },
   "basedpyright>=1.28.1"
 ]
 
@@ -859,7 +860,7 @@ fix-python = { composite = [
 #
 ###############################################################################
 
-check-typing = "basedpyright --stats"
+check-typing = "basedpyright --stats {args:src tests}"
 
 ###############################################################################
 #
