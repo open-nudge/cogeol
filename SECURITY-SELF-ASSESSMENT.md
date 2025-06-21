@@ -37,7 +37,7 @@ Source: https://tag-security.cncf.io/community/assessments/guide/self-assessment
 
 | Category          | Resource                                                                                       |
 | ----------------- | ---------------------------------------------------------------------------------------------- |
-| Assessment Stage  | Incomplete                                                                                     |
+| Assessment Stage  | Complete                                                                                       |
 | Creator           | open-nudge                                                                                     |
 | Software          | [https://github.com/open-nudge/cogeol](https://github.com/open-nudge/cogeol)                   |
 | Website           | [https://open-nudge.github.io/cogeol](https://open-nudge.github.io/cogeol)                     |
@@ -60,7 +60,13 @@ Align with supported Python versions - automated with endoflife.date
 
 ### Background
 
-TBD
+Currently, when a given Python reaches its end of life, the project
+maintainers have to manually update their supported Python versions.
+
+This tool allows to automate this project by connecting to
+[endoflife.date](https://endoflife.date) and using static code
+generation change the versions where specified by the user
+via [cog](https://github.com/nedbat/cog).
 
 ### Actors
 
@@ -69,15 +75,20 @@ TBD
 
 ### Actions
 
-TBD
+- All security features are provided by
+    [opentemplate](https://github.com/open-nudge/opentemplate) [](templateskip)
 
 ### Goals
 
-TBD
+Automating end-of-life Python version updates in the project,
+security guarantees provided by
+[opentemplate](https://github.com/open-nudge/opentemplate) [](templateskip)
 
 ### Non-goals
 
-TBD
+- Comprehensive Python version management
+- Updating versions automatically, without user specification via code
+- Updates for other tools/languages than Python
 
 ## Self-assessment use
 
@@ -147,7 +158,9 @@ file.
 
 ### Incident response
 
-TBD
+As defined in [`SECURITY.md`](https://github.com/open-nudge/cogeol/blob/master/SECURITY.md#reporting-a-vulnerability.),
+usually response should take up to a few working days, if not please reach out
+at `security@opennudge.com`.
 
 ## Appendix
 
