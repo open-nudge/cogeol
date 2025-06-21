@@ -60,6 +60,10 @@ classifiers = [
   # [[[end]]] (sum: FeG7grp2Dw)
   "Topic :: Software Development :: Libraries",
   "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Internet",
+  "Topic :: Scientific/Engineering",
+  "Topic :: Security",
+  "Topic :: Utilities",
   "Typing :: Typed",
 ]
 dynamic = [ "version" ]
@@ -71,6 +75,7 @@ dynamic = [ "version" ]
 ###############################################################################
 
 dependencies = [
+  "cogapp>=3.5.0",
 ]
 
 urls.Changelog = "https://github.com/open-nudge/cogeol/blob/master/CHANGELOG.md"
@@ -199,7 +204,7 @@ dev-release = [
 
 dev-generation = [
   "cogapp>=3",
-  "cogeol>=0.0.1",
+  "cogeol",
 ]
 
 dev-commit = [
@@ -527,6 +532,7 @@ reportMissingTypeStubs = "none"
 # A lot of false positives
 reportPrivateLocalImportUsage = "none"
 reportPrivateImportUsage = "none"
+reportImportCycles  = false
 
 extraPaths = [
   #
@@ -555,10 +561,8 @@ plugins.md042.enabled = false
 
 [tool.md_dead_link_check]
 exclude_links = [
-  "https://github.com/open-nudge/cogeol*",
   "https://open-nudge.github.io/cogeol*",
   "/LICENSE.md",
-  "https://open-nudge.github.io*",
   "templateskip",
 ]
 

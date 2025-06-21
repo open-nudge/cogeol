@@ -5,7 +5,7 @@
 groups = ["default", "dev-all", "dev-citation", "dev-code", "dev-commit", "dev-docs", "dev-generation", "dev-github", "dev-ini", "dev-legal", "dev-markdown", "dev-pre-commit", "dev-pyproject", "dev-python", "dev-release", "dev-security", "dev-shell", "dev-tests", "dev-typing", "dev-yaml"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:f9b23fb3ac397e95b6e3916b22075515c6e1831ade90fcb0b155f8445a6ac578"
+content_hash = "sha256:a0c95916a05ef3c23ad0e0388a5374d0cf721e6a92724fdb87e8ad01c5933d8f"
 
 [[metadata.targets]]
 requires_python = ">=3.11"
@@ -571,7 +571,7 @@ name = "cogapp"
 version = "3.5.1"
 requires_python = ">=3.9"
 summary = "Cog: A content generator for executing Python snippets in source files."
-groups = ["dev-all", "dev-generation"]
+groups = ["default", "dev-all", "dev-generation"]
 files = [
     {file = "cogapp-3.5.1-py3-none-any.whl", hash = "sha256:c14b906ff4d0386735c2d8022ce3d582bf0ec3215a66e9bbb2019e9b4230f413"},
     {file = "cogapp-3.5.1.tar.gz", hash = "sha256:a9e8b8c31e5e47de722f27eaba1ec128dd6c8e7b6015555d9c8edaa5ad6092b4"},

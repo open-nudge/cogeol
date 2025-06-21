@@ -48,13 +48,20 @@ ______________________________________________________________________
 
 ## Features
 
-__cogeol__ is a … allowing you to:
+__cogeol__ is a library which allows you to:
 
-- __Feature 1__: Description of the feature
-- __Feature 2__: Description of the feature
-- __Feature 3__: Description of the feature
-- __Feature 4__: Description of the feature
-- __Feature 5__: Description of the feature
+- __Manage Python versions in your projects__: no more checking
+    if a given Python version reached its end of life,
+    __cogeol__ will do it for you.
+- __Align with [Scientific Python SPEC0](https://scientific-python.org/specs/spec-0000/)__:
+    `cogeol` will allow you to align your project to the three latest
+    supported Python versions
+- __Caching__: `cogeol` reaches out to
+    [End of Life Date](https://endoflife.date)
+    to check the latest supported Python versions, and caches the results
+    on disk to avoid unnecessary network requests.
+- __Based on [cog](https://github.com/nedbat/cog)__: Manage versions of Python
+    by statically generated code (see examples below!)
 
 ## Quick start
 
@@ -66,35 +73,143 @@ __cogeol__ is a … allowing you to:
 
 ### Usage
 
-```python
-import cogeol
+> [!TIP]
+> Check out the [documentation](https://open-nudge.github.io/cogeol)
+> for all available functionalities and public-facing API.
 
-...
+1. Open `pyproject.toml` of your project
+    and find __necessary to have `requires-python` field__.
+1. Update it as follows (__comments are crucial!__):
+
+```toml
+# [[[cog
+# import cog
+# import cogeol
+#
+# cycle = cogeol.scientific()[-1]["cycle"]
+# cog.out(f'requires-python = ">={cycle}"')
+# ]]]
+requires-python = ">=3.9"
+# [[[end]]]
 ```
+
+Now run the following from the command line:
+
+```sh
+> cog -c -r pyproject.toml
+```
+
+__Now your `requires-python` field will be updated to the
+latest supported Python version!__
+
+For example (Python `3.11` is the latest supported version
+at the time of writing):
+
+```toml
+# [[[cog
+# import cog
+# import cogeol
+#
+# cycle = cogeol.scientific()[-1]["cycle"]
+# cog.out(f'requires-python = ">={cycle}"')
+# ]]]
+requires-python = ">=3.11"
+# [[[end]]] (sum: uZEo+p96oZ)
+```
+
+> [!NOTE]
+> Please notice a checksum, which verifies consistency
+> of the changes at each run
 
 ### Examples
 
 <details>
-  <summary><b><big>Short</big></b> (click me)</summary>
+  <summary><b><big>Specifying Python version classifiers</big></b> (click me)</summary>
 &nbsp;
 
-Description of the example
+You can automate the classifiers in your `pyproject.toml` file like this:
 
-```python
-# Short example
+```toml
+# [[[cog
+# import cog
+# import cogeol
+#
+# for version in reversed(cogeol.scientific()):
+#     cycle = version["cycle"]
+#     cog.outl(f'  "Programming Language :: Python :: {cycle}",')
+# ]]]
+"Programming Language :: Python :: 3.11",
+# [[[end]]]
+```
+
+Now run the following from the command line:
+
+```sh
+> cog -c -r pyproject.toml
+```
+
+and you should see the following (__notice all versions are present!__):
+
+```toml
+# [[[cog
+# import cog
+# import cogeol
+#
+# for version in reversed(cogeol.scientific()):
+#     cycle = version["cycle"]
+#     cog.outl(f'  "Programming Language :: Python :: {cycle}",')
+# ]]]
+"Programming Language :: Python :: 3.11",
+"Programming Language :: Python :: 3.12",
+"Programming Language :: Python :: 3.13",
+# [[[end]]] (sum: FeG7grp2Dw)
 ```
 
 </details>
 
 <details>
-  <summary><b><big>Common</big></b> (click me)</summary>
+  <summary><b><big>Caching</big></b> (click me)</summary>
 &nbsp;
 
-Description of the example
+Let's assume you have the following code snippet in `github-workflow.yml`:
 
-```python
-# Common use case
+```yaml
+...
+jobs:
+  tests-reusable:
+    strategy:
+      matrix:
+        python:
+          #
+          #           DO NOT EDIT UNTIL end marker
+          #
+          # [[[cog
+          # import cog
+          # import cogeol
+          #
+          # for version in reversed(cogeol.scientific()):
+          #     cycle = version['cycle']
+          #     cog.outl(f'          - "{cycle}"')
+          # ]]]
+          - "3.11"
+          # [[[end]]] (sum: l3d2zGv79j)
 ```
+
+in addition to your code in `pyproject.toml` using `cogeol`.
+
+Now, if you run:
+
+```sh
+> cog -c -r pyproject.toml github-workflow.yml
+```
+
+The following will happen:
+
+- Both files will be updated with appropriate Python versions
+- __Only one call to [End of Life Date](https://endoflife.date) will be made__
+    (the results are cached on disk)
+
+Next time you run the same command, the results will be read from the cache
 
 </details>
 
@@ -102,11 +217,12 @@ Description of the example
   <summary><b><big>Advanced</big></b> (click me)</summary>
 &nbsp;
 
-Description of the example
+For more examples check out this project's:
 
-```python
-# Something advanced and cool
-```
+- `pyproject.toml` file
+    (see [here](https://github.com/open-nudge/cogeol/blob/main/pyproject.toml))
+- Tests of the last three versions in GitHub Actions workflow
+    (see [here](https://github.com/open-nudge/cogeol/blob/main/.github/workflows/tests-reusable.yml))
 
 </details>
 
