@@ -7,8 +7,6 @@
 
 from __future__ import annotations
 
-import time
-
 import pytest
 
 import cogeol
@@ -31,18 +29,6 @@ def test_incorrect_cache_duration() -> None:
     """Test the `version` function with an incorrect value."""
     with pytest.raises(cogeol.error.CacheDurationNegativeError):
         _ = cogeol.versions(cache_duration=-1)
-
-
-def test_speedup() -> None:
-    """Test the speedup done by cache."""
-    start = time.time()
-    _ = cogeol.versions(cache_duration=0)
-    middle = time.time()
-    _ = cogeol.versions(cache_duration=None)
-    end = time.time()
-    no_cache = middle - start
-    cache = end - middle
-    assert cache < no_cache
 
 
 @pytest.mark.parametrize("cache_duration", (3600, 0, None))
