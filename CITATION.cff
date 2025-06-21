@@ -6,26 +6,13 @@
 ---
 cff-version: "1.2.0"
 abstract: >-
-  All-in-one Python template. One click. Everything included.
+  Align with supported Python versions - automated with endoflife.date
 message: "If you use this software, please cite it as below."
 authors:
   - family-names: "open-nudge"
-url: "https://github.com/open-nudge/opentemplate"
-repository-code: "https://github.com/open-nudge/opentemplate"
-title: "opentemplate"
+url: "https://github.com/open-nudge/cogeol"
+repository-code: "https://github.com/open-nudge/cogeol"
+title: "cogeol"
 license: "Apache-2.0"
 keywords:
   - "python"
-  - "template"
-  - "open source"
-  - "security"
-  - "automation"
-  - "developer experience"
-  - "devsec"
-  - "devsecops"
-  - "best practices"
-  - "hardening"
-  - "nudge"
-  - "github actions"
-  - "sbom"
-  - "attestation"

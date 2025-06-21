@@ -7,10 +7,10 @@
 
 from __future__ import annotations
 
-import opentemplate
+import cogeol
 
 
 def test_version() -> None:
     """Smoke test package version."""
     # nosemgrep
-    assert opentemplate.__version__ != ""
+    assert cogeol.__version__ != ""

@@ -6,15 +6,15 @@
 ---
 # yamllint disable rule:line-length
 site_name: >-
-  opentemplate
+  cogeol
 site_description: >-
-  All-in-one Python template. One click. Everything included.
+  Align with supported Python versions - automated with endoflife.date
 site_url: >-
-  https://open-nudge.github.io/opentemplate/
+  https://open-nudge.github.io/cogeol/
 repo_url: >-
-  https://github.com/open-nudge/opentemplate
+  https://github.com/open-nudge/cogeol
 repo_name: >-
-  open-nudge/opentemplate
+  open-nudge/cogeol
 # yamllint enable rule:line-length
 
 exclude_docs: |

@@ -578,17 +578,6 @@ files = [
 ]
 
 [[package]]
-name = "cogeol"
-version = "0.0.3"
-requires_python = ">=3.11"
-summary = "Use cog: https://github.com/nedbat/cog and endoflife: https://endoflife.date/ to automate Python version management!"
-groups = ["dev-all", "dev-generation"]
-files = [
-    {file = "cogeol-0.0.3-py3-none-any.whl", hash = "sha256:c4ef8a7d475789cb10b0ae5f43a34f25ec40dd0ca1f61775297cadb1e9e70ba7"},
-    {file = "cogeol-0.0.3.tar.gz", hash = "sha256:89e46a3ca806563002b3691375bfc1b9341c1a3fba2817f30e93f5b868f2976e"},
-]
-
-[[package]]
 name = "colorama"
 version = "0.4.6"
 requires_python = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
@@ -1148,7 +1137,7 @@ files = [
 
 [[package]]
 name = "hypothesis"
-version = "6.135.13"
+version = "6.135.14"
 requires_python = ">=3.9"
 summary = "A library for property-based testing"
 groups = ["dev-all", "dev-tests"]
@@ -1158,8 +1147,8 @@ dependencies = [
     "sortedcontainers<3.0.0,>=2.1.0",
 ]
 files = [
-    {file = "hypothesis-6.135.13-py3-none-any.whl", hash = "sha256:02f757c0ca75ea7999521e02c11b318ead902d287e37c906817861f218d9422a"},
-    {file = "hypothesis-6.135.13.tar.gz", hash = "sha256:6009c0a11753554efd5413c2145a5badfdb391cdf19f60619613ce5430762ad3"},
+    {file = "hypothesis-6.135.14-py3-none-any.whl", hash = "sha256:0dd5b8095e36bd288367c631f864a16c30500b01b17943dcea681233f7421860"},
+    {file = "hypothesis-6.135.14.tar.gz", hash = "sha256:2666df50b3cc40ea08b161a5389d6a1cd5aa3cab0dd8fde0ae339389714a4f67"},
 ]
 
 [[package]]
