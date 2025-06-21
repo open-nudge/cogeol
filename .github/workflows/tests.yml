@@ -38,4 +38,7 @@ jobs:
     # yamllint disable rule:line-length
     uses: "open-nudge/opentemplate/.github/workflows/tests-reusable.yml@main" # zizmor: ignore[unpinned-uses]
     # yamllint enable rule:line-length
+    with:
+      additional-allowed-endpoints: >
+        endoflife.date:443
 ...
