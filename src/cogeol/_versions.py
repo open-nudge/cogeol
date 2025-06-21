@@ -61,7 +61,7 @@ def versions(
     eol_cache = tempdir / "python-eol.json"
     if eol_cache.exists() and (
         cache_duration is None
-        or eol_cache.stat().st_mtime > time.time() - cache_duration
+        or eol_cache.stat().st_mtime < time.time() - cache_duration
     ):
         with eol_cache.open("r") as f:
             return json.load(f)

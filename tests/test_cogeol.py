@@ -24,7 +24,7 @@ def test_version(cache_duration: None | int) -> None:
 
     """
     versions = cogeol.versions(cache_duration=cache_duration)
-    assert versions[0]["cycle"] > versions[1]["cycle"]
+    assert versions[0]["cycle"] > versions[1]["cycle"]  # pyright: ignore[reportOperatorIssue]
 
 
 def test_incorrect_cache_duration() -> None:
@@ -57,5 +57,5 @@ def test_scientific(cache_duration: None | int) -> None:
 
     """
     scientific_python_versions = 3
-    length = len(cogeol.scientific(cache_duration=cache_duration))  # pyright: ignore[reportUnknownArgumentType]
+    length = len(cogeol.scientific(cache_duration=cache_duration))
     assert length == scientific_python_versions
