@@ -50,16 +50,13 @@ ______________________________________________________________________
 
 __cogeol__ is a library which allows you to:
 
-- __Manage Python versions in your projects__: no more checking
-    if a given Python version reached its end of life,
-    __cogeol__ will do it for you.
+- __Works with any file format__ (e.g. updating Python versions in CI/CD tests)
+- __No need to track Python EOL dates__ — cogeol does it for you
 - __Align with [Scientific Python SPEC0](https://scientific-python.org/specs/spec-0000/)__:
     `cogeol` will allow you to align your project to the three latest
     supported Python versions
-- __Caching__: `cogeol` reaches out to
-    [End of Life Date](https://endoflife.date)
-    to check the latest supported Python versions, and caches the results
-    on disk to avoid unnecessary network requests.
+- __Caching__: retrieves data from https://endoflife.date/
+    and stores it locally to minimize network requests
 - __Based on [cog](https://github.com/nedbat/cog)__: Manage versions of Python
     by statically generated code (see examples below!)
 
