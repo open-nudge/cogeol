@@ -16,7 +16,7 @@ or source code).
 - See https://endoflife.date/python for more information about the API.
 - See https://github.com/nedbat/cog for more information about the cog tool.
 
-See [python-template](https://github.com/nosludge/python-template/blob/main/pyproject.toml#L)
+See [python-template](https://github.com/nosludge/python-template/blob/main/pyproject.toml)
 for an example of how to use this module with cog.
 
 """
@@ -42,7 +42,21 @@ def versions(
     The result is cached for 24 hours by default to avoid making too many
     requests to the API and to speed up the results returning.
 
-    See https://endoflife.date/api/python.json for the API response format.
+    See [the API response format](https://endoflife.date/api/python.json)
+    for more information about the data returned by the API.
+
+    __Example__:
+
+    ```python
+    import cogeol
+
+    # Get the latest Python versions
+    for version in cogeol.versions(cache=0):
+        print(f"Python version: {version['cycle']}")
+
+    # Cached response returned from tmp file
+    print(cogeol.versions()[0])  # Get the last version:
+    ```
 
     Args:
         cache_duration:
@@ -88,6 +102,16 @@ def scientific(
     Functions the same as `versions` but returns only the latest `3` versions
     according to
     [Scientific Python SPEC0](https://scientific-python.org/specs/spec-0000/)
+
+    __Example__:
+
+    ```python
+    import cogeol
+
+    # Last three Python versions, starting from the latest one
+    for version in cogeol.scientific():
+        print(f"Python version: {version['cycle']}")
+    ```
 
     Args:
         cache_duration:
