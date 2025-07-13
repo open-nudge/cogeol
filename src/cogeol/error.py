@@ -13,7 +13,7 @@ class CogeolError(Exception):
 
 
 class CacheDurationNegativeError(CogeolError):
-    """Raised when the cache duration is negative."""
+    """Raised when the provided cache duration is negative."""
 
     def __init__(self, cache_duration: int) -> None:
         """Initialize the exception.
